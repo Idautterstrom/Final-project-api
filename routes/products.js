@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
 
 // include product controller
-const product_controller = require("../controllers/product");
+var product_controller = require("../controllers/product");
 
 // routes
 router.get("/", product_controller.all_products);
