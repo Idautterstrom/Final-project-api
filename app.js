@@ -5,15 +5,19 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 // database connection
 const dbConn = require("./lib/db");
+const bodyParser = require("body-parser");
 
 const productsRouter = require("./routes/products");
-
-app.use("/products", productsRouter);
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use("/products", productsRouter);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

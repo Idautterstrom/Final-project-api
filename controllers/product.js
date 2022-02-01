@@ -1,9 +1,11 @@
 // include product model
 const Product = require("../models/product");
 
+
 // create a new Product.
 exports.product_create = function (req, res) {
   // validate request
+  console.log(req);
   if (!req.body.name || !req.body.price) {
     return res.status(400).send({
       success: false,
